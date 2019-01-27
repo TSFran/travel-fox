@@ -1,0 +1,26 @@
+{
+  "compilerOptions": {
+    "sourceMap": true,
+    "moduleResolution": "node",
+    "noImplicitAny": false,
+    "module": "commonjs",
+    "target": "ES5",
+    "lib": [
+      "dom",
+      "es2015",
+      "es2015.promise"
+    ],
+    "removeComments": true,
+    "allowSyntheticDefaultImports": false,
+    "jsx": "react",
+    "allowJs": true,
+    "baseUrl": ".",
+    "types": ["node"]
+  },
+  "exclude": [
+    "node_modules"
+  ],
+  "awesomeTypescriptLoaderOptions": {
+    "transpileOnly": true
+  }
+}
