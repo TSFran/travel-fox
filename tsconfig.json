@@ -15,6 +15,9 @@
     "jsx": "react",
     "allowJs": true,
     "baseUrl": ".",
+    "paths": {
+      "@app/*": ["*"]
+    },
     "types": ["node"]
   },
   "exclude": [

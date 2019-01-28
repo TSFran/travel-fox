@@ -1,12 +1,13 @@
 import * as React from 'react';
 import { render } from 'react-dom';
 
-export const Test = () => {
-  return (<div>Test</div>);
-};
+import { BrowserRouter as Router } from 'react-router-dom';
+import { renderRoutes } from 'react-router-config';
+import { Routes } from '@app/config/routes';
 
-// function Test1() {
-//   return
-// }
-
-render(<Test />, document.getElementById('root'));
+render(
+  <Router>
+    { renderRoutes(Routes) }
+  </Router>, 
+  document.getElementById('root')
+);
