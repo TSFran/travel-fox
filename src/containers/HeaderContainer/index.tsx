@@ -1,6 +1,8 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
 
+import { connect } from 'react-redux';
+
 import NavBar from '@app/src/components/NavBar';
 import {
   HeaderLogo,
@@ -13,7 +15,7 @@ interface IHeaderState {
   show: boolean,
 }
 
-export default class Header extends React.Component<any, IHeaderState> {
+class Header extends React.Component<any, IHeaderState> {
   constructor(props) {
     super(props);
     this.state = {
@@ -34,20 +36,37 @@ export default class Header extends React.Component<any, IHeaderState> {
   }
 
   render() {
+    const { name, isFetching } = this.props;
     return (
-      <HeaderWrapper>
-        <HeaderLogo>
-          <div></div>
-        </HeaderLogo>
-        <HeaderIconButton onClick={this.changeClick} />
-        <NavBar 
-          showNavBar={this.state.show}
-          hideNavBar={this.hideNavBar}
-          />
-        <HeaderProfile>
-          <span>Luis Tupa</span>
-        </HeaderProfile>
-      </HeaderWrapper>
+      <React.Fragment>
+        {isFetching ? 
+          (
+            <div>Cargando...</div>
+          ) : 
+          (
+            <HeaderWrapper>
+              <HeaderLogo>
+                <div></div>
+              </HeaderLogo>
+              <HeaderIconButton onClick={this.changeClick} />
+              <NavBar
+                showNavBar={this.state.show}
+                hideNavBar={this.hideNavBar}
+              />
+              <HeaderProfile>
+                <span>{name}</span>
+              </HeaderProfile>
+          </HeaderWrapper>
+          )
+        }
+      </React.Fragment>
     );
   }
 }
+
+const mapStateToProps = state => ({
+  isFetching: state.users.isFetching,
+  name: state.users.items[0].name
+});
+
+export const HeaderContainer = connect(mapStateToProps, null)(Header);
