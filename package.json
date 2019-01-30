@@ -12,6 +12,7 @@
   "license": "ISC",
   "dependencies": {
     "awesome-typescript-loader": "^5.2.1",
+    "axios": "^0.18.0",
     "dotenv": "^6.2.0",
     "dotenv-expand": "^4.2.0",
     "eslint": "^5.12.1",
@@ -24,6 +25,7 @@
     "react-router-config": "^4.4.0-beta.6",
     "react-router-dom": "^4.3.1",
     "redux": "^4.0.1",
+    "redux-thunk": "^2.3.0",
     "styled-components": "^4.1.3",
     "typescript": "^3.2.4",
     "webpack": "^4.29.0"

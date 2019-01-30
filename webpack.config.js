@@ -14,15 +14,11 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const pathEnv = './.env.local';
 const dotenv = require('dotenv').config({
   path: pathEnv
-})
+});
 const vars = require('dotenv-expand')(dotenv).parsed;
 vars['NODE_ENV'] = process.env.NODE_ENV;
 const varsDefinePlugin = createVarsDefinePlugin(vars);
 const publicPath = 'http://localhost:3000/';
-
-// var BUILD_DIR = path.resolve(__dirname + 'public');
-// var build_dist = path.join(__dirname, 'dist');
-// var APP_DIR = path.resolve(__dirname + 'src');
 
 const plugins = [
   new webpack.DefinePlugin(varsDefinePlugin),
@@ -30,7 +26,7 @@ const plugins = [
     title: 'Travel-Fox',
     template: './public/index.html'
   })
-]
+];
 
 module.exports = {
   mode: 'development',
@@ -69,5 +65,15 @@ module.exports = {
       }
     ]
   },
-  plugins: plugins
-}
+  plugins: plugins,
+  optimization: {
+    runtimeChunk: 'single',
+    splitChunks: {
+      cacheGroups: {
+        vendor: {
+          name: 'vendor'
+        }
+      }
+    }
+  }
+};

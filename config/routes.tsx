@@ -3,6 +3,9 @@ import * as React from 'react';
 import { App } from '@app/src/views/App';
 import { Home } from '@app/src/views/Home';
 import { Drivers } from '@app/src/views/Drivers';
+import { Reservations } from '@app/src/views/Reservations';
+import { Destinys } from '@app/src/views/Destinys';
+import { Contact } from '@app/src/views/Contact';
 
 const pathBase = process.env.PATH_BASE;
 
@@ -20,8 +23,23 @@ export const Routes = [
         exact: true,
       },
       {
+        path: `${pathBase}/reservas`,
+        component: Reservations,
+        exact: true
+      },
+      {
+        path: `${pathBase}/destinos`,
+        component: Destinys,
+        exact: true
+      },
+      {
         path: `${pathBase}/conductores`,
         component: Drivers,
+        exact: true
+      },
+      {
+        path: `${pathBase}/contacto`,
+        component: Contact,
         exact: true
       },
       {

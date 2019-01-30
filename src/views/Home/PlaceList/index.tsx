@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import PlaceListContainer from './containers/placeListContainer';
+import PlaceListContainer from './containers/PlaceListContainer';
 
 export const PlaceList: React.SFC = () => (
   <React.Fragment>
