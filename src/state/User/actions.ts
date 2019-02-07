@@ -20,6 +20,7 @@ export const fetchUsers = (): any => {
     dispatch(fetchUsersRequest());
     try {
       let data = await serviceUsers.getUsers();
+      console.log(data, 'AQUI LA DATA QUE NECESITO')
       dispatch(fetchUsersSuccess(data));
     } catch (e) {
       dispatch(fetchUsersFailure());

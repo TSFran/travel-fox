@@ -3,7 +3,9 @@ import * as PropTypes from 'prop-types';
 
 import { connect } from 'react-redux';
 
-import NavBar from '@app/src/components/NavBar';
+// import NavBar from '@app/src/components/NavBar';
+import { NavBar } from '@app/src/components/NavBar2';
+
 import {
   HeaderLogo,
   HeaderWrapper,
@@ -37,6 +39,7 @@ class Header extends React.Component<any, IHeaderState> {
 
   render() {
     const { name, isFetching } = this.props;
+    console.log(name);
     return (
       <React.Fragment>
         {isFetching ? 
@@ -48,11 +51,12 @@ class Header extends React.Component<any, IHeaderState> {
               <HeaderLogo>
                 <div></div>
               </HeaderLogo>
-              <HeaderIconButton onClick={this.changeClick} />
-              <NavBar
+              {/* <HeaderIconButton onClick={this.changeClick} /> */}
+              {/* <NavBar
                 showNavBar={this.state.show}
                 hideNavBar={this.hideNavBar}
-              />
+              /> */}
+              <NavBar />
               <HeaderProfile>
                 <span>{name}</span>
               </HeaderProfile>
